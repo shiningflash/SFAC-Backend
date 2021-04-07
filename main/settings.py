@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # DRF APPS
     'rest_framework',
     'rest_framework.authtoken',
+    'django_rest_passwordreset',
     
     # MY APPS
     'account',
@@ -140,3 +141,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIT_PORT = 2525
+# EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '02700ded0bcbcc'
+EMAIL_HOST_PASSWORD = 'ce3bb0f7ec6a4e'

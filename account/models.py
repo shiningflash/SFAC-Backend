@@ -6,6 +6,10 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
+from django.urls import reverse
+from django_rest_passwordreset.signals import reset_password_token_created
+from django.core.mail import send_mail  
+
 
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, password):
@@ -63,3 +67,19 @@ class Account(AbstractBaseUser):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+        
+
+@receiver(reset_password_token_created)
+def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
+    email_plaintext_message = "{}?token={}".format(reverse('password_reset:reset-password-request'), reset_password_token.key)
+
+    send_mail(
+        # title:
+        "Password Reset for {title}".format(title="Your SFAC Account"),
+        # message:
+        email_plaintext_message,
+        # from:
+        "shiningflash007@gmail.com",
+        # to:
+        [reset_password_token.user.email]
+    )
