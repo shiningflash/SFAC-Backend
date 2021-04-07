@@ -1,5 +1,59 @@
 # SFAC-Backend
 
+-----------------
+
+## Register New User API
+
+```
+POST {{domain_url}}/api/account/register
+```
+
+```
+curl --request POST \
+  --url http://localhost:8000/api/account/register \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"email": "yourname@g.bracu.ac.bd",
+	"first_name": "Your_First_Name",
+	"last_name": "Your_Last_Name",
+	"password": "hbfdy776GFy",
+	"password2": "hbfdy776GFy"
+}'
+```
+
+**Response**
+```
+{
+  "response": "Successfully registered a new user.",
+  "email": "yourname@g.bracu.ac.bd",
+  "first_name": "Your_First_Name",
+  "last_name": "Your_Last_Name",
+  "token": "9031c07dad0f8a869c5551256a110cb7f3675228"
+}
+```
+
+## Login User API
+
+```
+POST {{domain_url}}/api/account/login
+```
+
+```
+curl --request POST \
+  --url http://localhost:8000/api/account/login \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"username": "yourname@bracu.ac.bd",
+	"password": "YOURPASSWORD"
+}'
+```
+
+**Response**
+```
+{
+  "token": "d94ffca2c287885ca575555f9b019d6d01c25f31"
+}
+```
 
 ## Change Password API
 
