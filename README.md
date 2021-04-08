@@ -8,6 +8,7 @@
 POST {{domain_url}}/api/account/register
 ```
 
+**Request**
 ```
 curl --request POST \
   --url http://localhost:8000/api/account/register \
@@ -38,6 +39,7 @@ curl --request POST \
 POST {{domain_url}}/api/account/login
 ```
 
+**Request**
 ```
 curl --request POST \
   --url http://localhost:8000/api/account/login \
@@ -61,6 +63,7 @@ curl --request POST \
 PUT {{domain_url}}/api/account/change-password
 ```
 
+**Request**
 ```
 curl --request PUT \
   --url http://localhost:8000/api/account/change-password \
@@ -70,14 +73,6 @@ curl --request PUT \
     "old_password": "dhfj766#@FGfsa",
     "new_password": "FRY5^^%75@@hgs"
 }'
-```
-
-**Request**
-```
-{
-    "old_password": "dhfj766#@FGfsa",
-    "new_password": "FRY5^^%75@@hgs"
-}
 ```
 **Response**
 ```
@@ -90,6 +85,9 @@ curl --request PUT \
 POST {{domain_url}}/api/password_reset/
 ```
 
+A secret token will sent to your mail.
+
+**Request**
 ```
 curl --request POST \
   --url http://localhost:8000/api/password_reset/ \
@@ -97,15 +95,6 @@ curl --request POST \
   --data '{
 	"email": "yourname@g.bracu.ac.bd"
 }'
-```
-
-A secret token will sent to your mail.
-
-**Request**
-```
-{
-	"email": "yourname@g.bracu.ac.bd"
-}
 ```
 **Response**
 ```
@@ -120,6 +109,9 @@ A secret token will sent to your mail.
 POST {{domain_url}}/api/password_reset/confirm/
 ```
 
+Use the `secret token` that sent to your mail.
+
+**Request**
 ```
 curl --request POST \
   --url http://localhost:8000/api/password_reset/confirm/ \
@@ -131,22 +123,10 @@ curl --request POST \
 }'
 ```
 
-Use the `secret token` that sent to your mail.
-
-**Request**
-```
-{
-    "token":"your token that sent to your mail",
-    "password":"your new password"
-}
-
-```
 **Response**
 1. for wrong token
 ```
-{
-  "status": "notfound"
-}
+{ "status": "notfound" }
 ```
 2. for same or similar password as previous
 ```
@@ -158,7 +138,37 @@ Use the `secret token` that sent to your mail.
 ```
 3. correct token and new valid password
 ```
-{
-  "status": "OK"
-}
+{ "status": "OK" }
+```
+
+## Create Job Post
+
+```
+empty
+```
+
+**Request**
+```
+empty
+```
+
+**Response**
+```
+empty
+```
+
+## Like certain Job Post
+
+```
+empty
+```
+
+**Request**
+```
+empty
+```
+
+**Response**
+```
+empty
 ```
