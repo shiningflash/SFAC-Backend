@@ -123,7 +123,6 @@ curl --request POST \
 }'
 ```
 
-```
 **Response**
 1. for wrong token
 ```
@@ -145,31 +144,31 @@ curl --request POST \
 ## Create Job Post
 
 ```
-
+empty
 ```
 
 **Request**
 ```
-
+empty
 ```
 
 **Response**
 ```
-
+empty
 ```
 
 ## Like certain Job Post
 
 ```
-
+empty
 ```
 
 **Request**
 ```
-
+empty
 ```
 
 **Response**
 ```
-
+empty
 ```
