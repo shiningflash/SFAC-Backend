@@ -2,10 +2,14 @@
 
 -----------------
 
+Student Faculty Alumni Collaboration
+
+-----------------
+
 ## Register New User API
 
 ```
-POST {{domain_url}}/api/account/register
+POST {{host}}/api/account/register
 ```
 
 **Request**
@@ -36,7 +40,7 @@ curl --request POST \
 ## Login User API
 
 ```
-POST {{domain_url}}/api/account/login
+POST {{host}}/api/account/login
 ```
 
 **Request**
@@ -60,7 +64,7 @@ curl --request POST \
 ## Change Password API
 
 ```
-PUT {{domain_url}}/api/account/change-password
+PUT {{host}}/api/account/change-password
 ```
 
 **Request**
@@ -82,7 +86,7 @@ curl --request PUT \
 ## Reset Password Request API
 
 ```
-POST {{domain_url}}/api/password_reset/
+POST {{host}}/api/password_reset/
 ```
 
 A secret token will sent to your mail.
@@ -106,7 +110,7 @@ curl --request POST \
 ## Reset Password Confirm API
 
 ```
-POST {{domain_url}}/api/password_reset/confirm/
+POST {{host}}/api/password_reset/confirm/
 ```
 
 Use the `secret token` that sent to your mail.
@@ -144,31 +148,108 @@ curl --request POST \
 ## Create Job Post
 
 ```
-empty
+POST {{host}}/api/jobposts/
 ```
 
 **Request**
 ```
-empty
+curl --request POST \
+  --url http://localhost:8000/api/jobposts/ \
+  --header 'Authorization: Token a60c40cd36fc9141bad2877c3b674b72a99b1ca9' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"position": "Software Engineer",
+	"company": "Evaly.com.bd",
+	"salary": "80000.00",
+	"url": "https://evaly.com.bd/",
+	"description": "Join Us!"
+}'
 ```
 
 **Response**
 ```
-empty
+{
+  "id": 1,
+  "position": "Software Engineer",
+  "company": "Evaly.com.bd",
+  "salary": 80000.0,
+  "experience": null,
+  "url": "https://evaly.com.bd/",
+  "description": "Join Us!",
+  "poster": "Amirul",
+  "poster_id": 1,
+  "created_at": "2021-04-10T03:52:21.921172Z",
+  "updated_at": "2021-04-10T03:52:21.921205Z",
+  "likes": 0
+}
 ```
 
-## Like certain Job Post
+## View Job List
 
 ```
-empty
+GET {{host}}/api/jobposts/
 ```
 
 **Request**
 ```
-empty
+curl --request GET \
+  --url http://localhost:8000/api/jobposts/
 ```
 
 **Response**
 ```
-empty
+[
+  {
+    "id": 1,
+    "position": "Software Engineer",
+    "company": "Evaly.com.bd",
+    "salary": 80000.0,
+    "experience": null,
+    "url": "https://evaly.com.bd/",
+    "description": "Join Us!",
+    "poster": "Amirul",
+    "poster_id": 1,
+    "created_at": "2021-04-10T03:52:21.921172Z",
+    "updated_at": "2021-04-10T03:52:21.921205Z",
+    "likes": 1
+  }
+]
 ```
+
+## View Job Details
+
+```
+GET {{host}}/api/jobposts/1
+```
+
+**Request**
+```
+curl --request GET \
+  --url http://localhost:8000/api/jobposts/1
+```
+
+
+## Like to certain Job Post
+
+```
+POST {{host}}/api/jobposts/3/like
+```
+
+**Request**
+```
+curl --request POST \
+  --url http://localhost:8000/api/jobposts/3/like \
+  --header 'Authorization: Token a60c40cd36fc9141bad2877c3b674b72a99b1ca9'
+```
+
+**Response**
+```
+{
+  "id": 4,
+  "created_at": "2021-04-10T04:00:22.663906Z"
+}
+```
+
+-------------
+
+Project Idea: [Faizun Faria](https://github.com/Faizun-Faria/StudentFacultyAlumniCollaboration)

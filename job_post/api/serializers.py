@@ -13,7 +13,7 @@ class JobPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobPost
         fields = ['id', 'position', 'company', 'salary', 'experience',
-                  'url', 'description', 'poster', 'poster_id', 'created_at', 'updated_at']
+                  'url', 'description', 'poster', 'poster_id', 'created_at', 'updated_at', 'likes']
         
     def get_likes(self, post):
         return Like.objects.filter(post=post).count()
@@ -22,5 +22,5 @@ class JobPostSerializer(serializers.ModelSerializer):
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = ['id', 'liker', 'created_at']
+        fields = ['id', 'created_at']
         

@@ -120,6 +120,8 @@ GitHub.sublime-settings
 .vscode
 .vs_code
 
+__pycache__/
+
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py

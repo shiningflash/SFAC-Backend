@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     
     # MY APPS
     'account',
-    'job_post'
+    'job_post',
 ]
 
 REST_FRAMEWORK = {
