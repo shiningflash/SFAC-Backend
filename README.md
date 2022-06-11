@@ -252,4 +252,4 @@ curl --request POST \
 
 -------------
 
-Project Idea: [Faizun Faria](https://github.com/Faizun-Faria/StudentFacultyAlumniCollaboration)
+<!-- Project Idea: [Faizun Faria](https://github.com/Faizun-Faria/StudentFacultyAlumniCollaboration) -->
